@@ -1,0 +1,61 @@
+﻿@model HTLMS.WebApp.Models.Hotel
+
+@{
+    ViewData["Title"] = "CreateOrEdit";
+}
+<div class="text-center">
+    <h1>CreateOrEdit</h1>
+    <h4 class="text-warning text-uppercase">Hotel Details</h4>
+    <hr />
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <form asp-action="CreateOrEdit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group d-flex pt-3 fw-bold fs-5">
+                    <label asp-for="HotelName" class="control-label">HotelName:</label>
+                    <input asp-for="HotelName" class="form-control"/>
+                    <span asp-validation-for="HotelName" class="text-danger"></span>
+                </div>
+                <div class="form-group d-flex pt-3 fw-bold fs-5">
+                    <label asp-for="HotelDescription" class="control-label">HotelDescription:</label>
+                    <input asp-for="HotelDescription" class="form-control" />
+                    <span asp-validation-for="HotelDescription" class="text-danger"></span>
+                </div>
+                <div class="form-group d-flex pt-3 fw-bold fs-5">
+                    <label asp-for="HotelType" class="control-label">HotelType:</label>
+                    <input asp-for="HotelType" class="form-control" />
+                    <span asp-validation-for="HotelType" class="text-danger"></span>
+                </div> 
+                <div class="form-group d-flex pt-3 fw-bold fs-5">
+                    <label asp-for="HotelAddress" class="control-label">HotelAddress:</label>
+                    <input asp-for="HotelAddress" class="form-control" />
+                    <span asp-validation-for="HotelAddress" class="text-danger"></span>
+                </div> 
+                <div class="form-group d-flex pt-3 fw-bold fs-5">
+                    <label asp-for="HotelCode" class="control-label">HotelCode:</label>
+                    <input asp-for="HotelCode" class="form-control" />
+                    <span asp-validation-for="HotelCode" class="text-danger"></span>
+                </div>
+                <div class="form-group d-flex pt-3 fw-bold fs-5">
+                    <label asp-for="HotelPhoneNumber" class="control-label">HotelPhoneNumber:</label>
+                    <input asp-for="HotelPhoneNumber" class="form-control" />
+                    <span asp-validation-for="HotelPhoneNumber" class="text-danger"></span>
+                </div>
+                <div class="form-group mt-5 d-inline-block">
+                    <input asp-action="CreateOrEdit" asp-controller="Hotel" type="submit" value="Create" class="btn-lg btn btn-success text-uppercase fw-bold fs-6" />
+                    <a asp-action="Index" asp-controller="Hotel" class="btn btn-lg btn-warning text-white text-uppercase fw-bold fs-6">Back to List</a>
+                    
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

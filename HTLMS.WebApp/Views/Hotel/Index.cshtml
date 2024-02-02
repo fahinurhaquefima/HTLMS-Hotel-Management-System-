@@ -1,0 +1,67 @@
+﻿@model IEnumerable<HTLMS.WebApp.Models.Hotel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="text-center">
+    <h1 class="text-uppercase fw-bold fs-4">Index Table</h1>
+</div>
+
+<table class="table table-bordered table-info mt-5">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.HotelName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HotelDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HotelType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HotelAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HotelCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HotelPhoneNumber)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.HotelName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HotelDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HotelType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HotelAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HotelCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HotelPhoneNumber)
+            </td>
+            <td>
+                    <a asp-action="CreateOrEdit" asp-controller="Hotel" asp-route-id="@item.HotelId" class="btn btn-sm btn-success">Edit</a> |
+                    <a asp-action="Details" asp-controller="Hotel" asp-route-id="@item.HotelId" class="btn btn-sm btn-warning">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.HotelId" class="btn btn-sm btn-danger">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<p>
+    <a asp-action="CreateOrEdit" class="btn btn-warning text-white text-uppercase mt-5 text-center">Create New</a>
+</p>
